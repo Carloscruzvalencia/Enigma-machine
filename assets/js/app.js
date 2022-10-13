@@ -4,14 +4,10 @@
 // 4- aparte los tres rotores tienen un numero marcado para hacer cambiar a los demas rotores  
 // 5- alfinal la letra puede cambiar si el plug board a sido modificado
 
-// TODO arreglar el plug para que genere solo una letra que se compare con la lista de letras originales i digacuales an cambiado
-// array que guarda las letras que an sido cambiadas por el plu
-plug = []
-// !!!!!!!! primera fase de encriptacion plug
-for (i = 0, j = 27; i != j; i++) {
-    random = Math.floor(Math.random() * 27) + 1;
-    plug.push(random)
-}
+// TODO array que guarda las letras que an sido cambiadas por el plug
+// TODO recoger los datos de la configuracion de los rotores de la web 
+
+
 document.addEventListener('keydown', (event) => {
     // variable that contains the value of the key pressed by the user
     var letter = event.key;
@@ -28,34 +24,41 @@ document.addEventListener('keydown', (event) => {
     // also if the value is not a character the utput is -1 so is not a letter or is not the letter expected
     if (lettPos >= 0) {
         position = lettPos
-        lettTipe = "loWercase"
+        lettType = "loWercase"
     } else {
         position = lettPos2
-        lettTipe = "upperCase"
+        lettType = "upperCase"
     }
 
-
-
-    console.log(plug)
+    plug = []
+    // !!!!!!!! First encryption phase the plug
+    letterplug = Math.floor(Math.random() * 27);
+    plug.push(letterplug)
+    if (lettType == 'loWercase'){
+        lettindex = letterArray[letterplug]
+    }else{
+        lettindex = letterArray2[letterplug]
+    }
     // ------------------------------- DATA LOGS ---------------------------------------------------------
-    // table for leters and is key number references and the tipe of leter
-    function conData(letter, keyNumber, tipe) {
-        this.letter = letter;
+    // table for leters and is key number references and the type of leter
+    function conData(UserLetter, keyNumber, type) {
+        this.UserLetter = UserLetter;
         this.keyNumber = keyNumber;
-        this.tipe = tipe;
+        this.type = type;
     }
-    var rawData = new conData(letter, position, lettTipe);
+    var rawData = new conData(letter, position, lettType);
+    console.warn("rawDATA / user input")
     console.table([rawData]);
 
     
-    function plugData(currentLetter, plugOut) {
+    function plugData(currentLetter, plugOut,newPlugLetter) {
         this.currentLetter = currentLetter;
         this.plugOut = plugOut;
+        this.newPlugLetter = newPlugLetter;
     }
-    var plugData = new plugData(letter);
+    var plugData = new plugData(letter,plug[0],lettindex);
+    console.warn("plug configuration")
     console.table([plugData]);
-
-
     // --------------------------------- END OF DATA LOGS ------------------------------------------------
 
     // // for que te indica cual es tu convinacion en el plug
