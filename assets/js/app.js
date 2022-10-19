@@ -1,13 +1,3 @@
-// 1- plug boar cambia 0 - 1 depende DONE
-// 2- dependiendo de el orden en el que se coloquen los rotores i el numero elegido 
-// 3- en los rotores la letra cambia cambia 7 veces en total son 3 rotores cada uno tiene 26 numeros representado a una letra,
-// 4- aparte los tres rotores tienen un numero marcado para hacer cambiar a los demas rotores  
-// 5- alfinal la letra puede cambiar si el plug board a sido modificado
-
-// TODO array que guarda las letras que an sido cambiadas por el plug
-// TODO recoger los datos de la configuracion de los rotores de la web 
-
-
 document.addEventListener('keydown', (event) => {
     // variable that contains the value of the key pressed by the user
     var letter = event.key;
@@ -34,8 +24,12 @@ document.addEventListener('keydown', (event) => {
 
     // ----------------------------- First encryption phase the plug -------------------------------------
 
+    // variable that tells if the user wants to use a personalized plugboard or arandom plugboard
+    plugUse = 0
     // array containing the letters that have changed by the plug
     plug = []
+    // array containing the letters that have changed by the user 
+    userchange = [];
 
     //this variable generates a new number betwen 0 and 27
     letterplug = Math.floor(Math.random() * 27);
@@ -48,6 +42,24 @@ document.addEventListener('keydown', (event) => {
     }else{
         // this variable contains the new letter selectet by the random if is UpperCase
         lettindex = letterArray2[letterplug]
+    }
+
+    document.getElementById("plugData").onclick = function () {
+        for (i = 0, j = 27; i != j; i++) {
+            ch = document.getElementById("letter-" + [i]).value;
+
+            if (ch == letterArray[i]) {
+                userchange.push(ch)
+            } else {
+                if (ch == ""){
+                    userchange.push(letterArray[i])
+                }else{
+                    userchange.push(ch)
+                    console.error("la letra "+letterArray[i]+" a hora es "+userchange[i])
+                }
+            }
+        }
+        console.log(userchange)
     }
     // ----------------------------- End of first phase of encryption ------------------------------------
 

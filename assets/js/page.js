@@ -1,8 +1,8 @@
 document.addEventListener("DOMContentLoaded", function () {
     // si
     letterArray = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'ñ', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
-    userchange = [];
-    // we create the input that lets the user decide to change the plugboard configuration or let the prgogram to decide the configuration
+    // we create the warning that lets the user know that this program has the option to generate a plugboard configuration
+    // or he can chose to create is ow plugboard configuration
     plugwarn = document.createElement("span");
     plugwarn.setAttribute('id', "warningSpan")
     plugBoard.appendChild(plugwarn);
@@ -27,19 +27,7 @@ document.addEventListener("DOMContentLoaded", function () {
     sendPlugBoardConf.setAttribute('id', "plugData");
     plugBoard.appendChild(sendPlugBoardConf);
 
-    document.getElementById("plugData").onclick = function () {
-        for (i = 0, j = 27; i != j; i++) {
-            ch = document.getElementById("letter-" + [i]).value;
-            userchange.push(ch)
-        }
-        for (i = 0, j = 27; i != j; i++){
-            if (letterArray[i] != userchange[i]){
-                console.error("letter change")
-            }
-        }
-    }
+    for (i = 0, j = 3; i != j;i++ ){
 
-    // setTimeout(() => {
-    //     console.log(document.getElementById("letter-0").value)
-    //   }, 2000)
+    }
 });
