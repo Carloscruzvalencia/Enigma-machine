@@ -3,7 +3,7 @@
 
 
 
-## git work flow
+## git workflow
 
 if you want to know what im doign change to the branch development
 
