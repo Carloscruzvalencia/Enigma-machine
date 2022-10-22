@@ -28,8 +28,9 @@ document.addEventListener("DOMContentLoaded", function () {
     plugBoard.appendChild(sendPlugBoardConf);
 
     for (i = 0, j = 3; i != j;i++ ){
-        rotorInput = document.getElementById("rotors");
-
+        rotors = document.createElement("input")
+        rotors.setAttribute('type', "number");
+        rotors.setAttribute('id', "rotor-"+i);
     }
 });
 // TODO add this  part to the documentation 
