@@ -7,7 +7,7 @@
 
 if you want to know what im doign change to the branch development
 
-there well be no updates on main branch until a mayor progres are made and the next updates will be as release until the moment all the udates will stay in the development branch
+there well be no updates on main branch until a mayor progres are made and the next updates will be as release until the moment all the updates will stay in the development branch
 
   ```mermaid
     gitGraph
