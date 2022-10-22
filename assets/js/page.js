@@ -28,6 +28,9 @@ document.addEventListener("DOMContentLoaded", function () {
     plugBoard.appendChild(sendPlugBoardConf);
 
     for (i = 0, j = 3; i != j;i++ ){
+        rotorInput = document.getElementById("rotors");
 
     }
 });
+// TODO add this  part to the documentation 
+// creating html elements with javascript 
