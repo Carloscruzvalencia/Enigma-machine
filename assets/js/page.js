@@ -6,35 +6,64 @@ document.addEventListener("DOMContentLoaded", function () {
     plugBoard = document.getElementById("plugBoard")
     plugwarn = document.createElement("span");
     plugwarn.setAttribute('id', "warningSpan")
+    plugwarn.innerHTML = "if the letters are not changed, new letters will be chosen randomly"
     plugBoard.appendChild(plugwarn);
 
-    document.getElementById("warningSpan").innerHTML = "if the letters are not changed, new letters will be chosen randomly";
+    org = 0
+    for (k = 0 ;k!= 3 ;k++){
+        plugdiv = document.createElement("div")
+        plugdiv.setAttribute("id","separator"+k)
+        plugBoard.appendChild(plugdiv)
+        
+        for (i = 0, j = 9; i != j; i++) {
+            plugdivorg = document.createElement("div")
+            plugdivorg.setAttribute("id","content"+org)
+            plugdiv.appendChild(plugdivorg)
 
-    for (i = 0, j = 27; i != j; i++) {
+            plugBoardSpan = document.createElement("span");
+            plugBoardSpan.setAttribute('id', "spanLetter-" + letterArray[org])
+            plugBoardSpan.innerHTML = letterArray[org]
+            
+            plugInput = document.createElement("input");
+            plugInput.setAttribute("type", "text");
+            plugInput.setAttribute('id', "letter-" + org, )
 
-        plugBoardSpan = document.createElement("span");
-        plugBoardSpan.setAttribute('id', "spanLetter-" + letterArray[i])
-        plugBoardSpan.innerHTML = letterArray[i]
+            if (org <= 9){
+                plugorg = document.getElementById("content"+org)
+                plugorg.appendChild(plugBoardSpan);
+                plugorg.appendChild(plugInput);
+            }
+            else if(org >= 10 && org <= 20){
+                plugorg = document.getElementById("content"+org)
+                plugorg.appendChild(plugBoardSpan);
+                plugorg.appendChild(plugInput);
+            }
 
-        plugInput = document.createElement("input");
-        plugInput.setAttribute("type", "text");
-        plugInput.setAttribute('id', "letter-" + i,)
-
-        plugBoard.appendChild(plugBoardSpan);
-        plugBoard.appendChild(plugInput);
+            else if (org >= 20 && org <=27){
+                plugorg = document.getElementById("content"+org)
+                plugorg.appendChild(plugBoardSpan);
+                plugorg.appendChild(plugInput);
+            }
+            org++
+        }
     }
+
+
     sendPlugBoardConf = document.createElement("input");
     sendPlugBoardConf.setAttribute('type', "button");
     sendPlugBoardConf.setAttribute('id', "plugData");
     plugBoard.appendChild(sendPlugBoardConf);
 
-    for (i = 0, j = 3; i != j;i++ ){
+    rotorwarn = document.createElement("span")
+    rotorwarn.innerHTML = "put a number betwen 0 and 27 in each rotor or let the program decide"
+    rotors.appendChild(rotorwarn)
+
+    for (i = 0, j = 3; i != j; i++) {
         rotors = document.getElementById("rotors")
-        
+
         rotor = document.createElement("input")
         rotor.setAttribute('type', "number");
-        rotor.setAttribute('id', "rotor-"+i);
-
+        rotor.setAttribute('id', "rotor-" + i);
 
         rotors.appendChild(rotor)
     }
@@ -47,4 +76,3 @@ document.addEventListener("DOMContentLoaded", function () {
 // you also can add a id 
 // rotors.setAttribute('id', "rotor-"+i);
 // and to finish you ned to add the element to the variable you create earlier
-

@@ -2,4 +2,13 @@ main{
     width: 100vw;
     height: 100vh;
     background-color: gray;
+    article{
+        display: grid;
+        #plugBoard{
+            display: grid;
+            input[type = text]{
+                width: 10vw;
+            }
+        }
+    }
 }
