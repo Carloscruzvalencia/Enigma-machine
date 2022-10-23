@@ -6,8 +6,30 @@ main{
         display: grid;
         #plugBoard{
             display: grid;
+
+            $count: 0;
+            @for $i from 0 to 3{
+                #{"#"+separator#{$i}}{
+                    grid-area: 1/#{$i+1};
+
+                    @for $j from 0 to 9{
+                        #{"#"+content#{$count}}{
+                            display: grid;
+                        }
+                        $count: $count +1;
+                    }
+                };
+            }
             input[type = text]{
                 width: 10vw;
+            }
+        }
+        #rotors{
+            display: grid;
+            @for $i from 1 to 4{
+                #{"#"+rotorOrg#{$i}}{
+                    grid-area: 2/#{$i};
+                }
             }
         }
     }

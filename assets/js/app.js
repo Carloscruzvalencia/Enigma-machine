@@ -64,7 +64,7 @@ document.addEventListener('keydown', (event) => {
     // ----------------------------- End of first phase of encryption ------------------------------------
 
     // ------------------------------- DATA LOGS ---------------------------------------------------------
-    // table for leters and is key number reference and the type of letter
+    // table for letters and is key number reference and the type of letter
     function conData(UserLetter, keyNumber, type) {
         this.UserLetter = UserLetter;
         this.keyNumber = keyNumber;

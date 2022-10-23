@@ -75,14 +75,21 @@ document.addEventListener("DOMContentLoaded", function () {
     rotors.appendChild(rotorWarning)
 
     // here i create the rotors
-    for (i = 0, j = 3; i != j; i++) {
+    for (i = 1, j = 4; i != j; i++) {
         rotors = document.getElementById("rotors")
+
+        rotorOrg = document.createElement("div")
+
+        rotorOrg.setAttribute("id","rotorOrg"+i)
 
         rotor = document.createElement("input")
         rotor.setAttribute('type', "number");
         rotor.setAttribute('id', "rotor-" + i);
+        rotor.setAttribute("min",0)
+        rotor.setAttribute("max",27)
 
-        rotors.appendChild(rotor)
+        rotors.appendChild(rotorOrg)
+        rotorOrg.appendChild(rotor)
     }
 });
 
